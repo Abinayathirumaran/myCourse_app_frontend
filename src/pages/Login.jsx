@@ -37,19 +37,26 @@ const Login = () => {
     };
 
     return (
-        <div className="min-h-screen flex bg-gray-100">
-            <div className="hidden lg:flex w-1/2 relative">
+        <div className="min-h-screen flex bg-zinc-950 text-zinc-100">
+            {/* Image Section */}
+            <div className="hidden lg:flex w-1/2 relative opacity-80 mix-blend-luminosity">
                 <img
                     src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200"
                     alt="Learning Portal"
                     className="w-full h-screen object-cover"
                 />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-zinc-950 w-full h-full" />
             </div>
+
+            {/* Form Container */}
             <div className="w-full lg:w-1/2 flex items-center justify-center px-6 py-10">
-                <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl p-8">
-                    <h2 className="text-3xl font-bold text-center mb-8">Course Portal Login</h2>
+                <div className="w-full max-w-md bg-zinc-900 rounded-2xl border border-zinc-800 p-8 shadow-xl">
+                    <h2 className="text-3xl font-bold text-center mb-8 text-zinc-100">
+                        Course Portal <span className="text-emerald-500">Login</span>
+                    </h2>
+                    
                     {errorMessage && (
-                        <div className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded-lg text-sm font-semibold">
+                        <div className="mb-4 p-3 bg-red-950/50 border border-red-800 text-red-400 rounded-lg text-sm font-semibold">
                             {errorMessage}
                         </div>
                     )}
@@ -57,25 +64,34 @@ const Login = () => {
                     {/* Form */}
                     <form onSubmit={handleSubmit} className="space-y-5">
                         <div>
-                            <label className="block mb-2 font-medium">Email</label>
-                            <input  type="email" placeholder="Enter your email" value={loginData.email}
+                            <label className="block mb-2 font-medium text-zinc-300">Email</label>
+                            <input 
+                                type="email" 
+                                placeholder="Enter your email" 
+                                value={loginData.email}
                                 onChange={(e) => setLoginData({ ...loginData, email: e.target.value })}
-                                className="w-full border border-gray-300 rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-black"
-                                required />
+                                className="w-full bg-zinc-950 border border-zinc-750 text-zinc-100 rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-500 placeholder-zinc-600 transition"
+                                required 
+                            />
                         </div>
                         <div>
-                            <label className="block mb-2 font-medium">Password</label>
-                            <input  type="password"  placeholder="Enter your password" value={loginData.password}
+                            <label className="block mb-2 font-medium text-zinc-300">Password</label>
+                            <input 
+                                type="password"  
+                                placeholder="Enter your password" 
+                                value={loginData.password}
                                 onChange={(e) => setLoginData({ ...loginData, password: e.target.value })}
-                                className="w-full border border-gray-300 rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-black"
-                                required  />
+                                className="w-full bg-zinc-950 border border-zinc-750 text-zinc-100 rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-500 placeholder-zinc-600 transition"
+                                required  
+                            />
                         </div>
-                        <button type="submit" className="w-full bg-black text-white py-3 rounded-lg font-semibold hover:bg-gray-800 transition">
+                        <button type="submit" className="w-full bg-emerald-600 text-zinc-950 py-3 rounded-lg font-bold hover:bg-emerald-500 transition active:scale-[0.99]">
                             Login
                         </button>
                     </form>
-                    <p className="text-center mt-6 text-gray-600">
-                        New here? <Link to="/register" className="text-black font-semibold">Create an account</Link>
+                    
+                    <p className="text-center mt-6 text-zinc-400">
+                        New here? <Link to="/register" className="text-emerald-400 font-semibold hover:text-emerald-300 transition">Create an account</Link>
                     </p>
                 </div>
             </div>
@@ -83,4 +99,4 @@ const Login = () => {
     );
 };
 
-export default Login
+export default Login;
